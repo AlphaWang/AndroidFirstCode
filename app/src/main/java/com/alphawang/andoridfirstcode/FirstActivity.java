@@ -22,7 +22,9 @@ public class FirstActivity extends Activity {
 
         buttonEvent();
         finishEvent();
+
         expIntentEvent();
+        impIntentEvent();
     }
 
     // 1. Button Event
@@ -71,12 +73,23 @@ public class FirstActivity extends Activity {
     }
 
     // 4. exp intent
-    public void expIntentEvent() {
+    private void expIntentEvent() {
         Button expBtn = (Button) findViewById(R.id.button_intent_exp);
         expBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FirstActivity.this, SecondActivity.class); // context, target
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void impIntentEvent() {
+        Button impBtn = (Button) findViewById(R.id.button_intent_imp);
+        impBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("android.intent.action.SET_WALLPAPER");// com.alphawang.action.TEST
                 startActivity(intent);
             }
         });
