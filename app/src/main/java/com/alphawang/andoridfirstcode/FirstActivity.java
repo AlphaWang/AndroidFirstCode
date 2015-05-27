@@ -79,6 +79,7 @@ public class FirstActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FirstActivity.this, SecondActivity.class); // context, target
+                intent.putExtra("extra_data", "Data in 1st activity.");
                 startActivity(intent);
             }
         });
