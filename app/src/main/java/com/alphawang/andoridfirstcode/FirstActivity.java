@@ -13,15 +13,17 @@ import android.widget.Toast;
  */
 public class FirstActivity extends Activity {
 
-    // Button Event
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
 
         buttonEvent();
+        finishEvent();
     }
 
+    // 1. Button Event
     private void buttonEvent() {
         Button button = (Button) findViewById(R.id.button_1);
         button.setOnClickListener(new View.OnClickListener() {
@@ -35,7 +37,7 @@ public class FirstActivity extends Activity {
 
 
 
-    // Menu
+    // 2. Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.first_menu, menu);
@@ -53,4 +55,17 @@ public class FirstActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+    // 3. finish
+    private void finishEvent() {
+        Button finishBtn = (Button) findViewById(R.id.button_finish);
+        finishBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
 }
