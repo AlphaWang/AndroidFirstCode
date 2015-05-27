@@ -1,6 +1,7 @@
 package com.alphawang.andoridfirstcode;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +22,7 @@ public class FirstActivity extends Activity {
 
         buttonEvent();
         finishEvent();
+        expIntentEvent();
     }
 
     // 1. Button Event
@@ -64,6 +66,18 @@ public class FirstActivity extends Activity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+    }
+
+    // 4. exp intent
+    public void expIntentEvent() {
+        Button expBtn = (Button) findViewById(R.id.button_intent_exp);
+        expBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FirstActivity.this, SecondActivity.class); // context, target
+                startActivity(intent);
             }
         });
     }
