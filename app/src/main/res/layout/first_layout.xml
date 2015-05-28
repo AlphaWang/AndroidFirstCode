@@ -28,4 +28,10 @@
         android:layout_height="wrap_content"
         android:text="Goto 2nd activity: imp intent"/>
 
+    <Button
+        android:id="@+id/button_start_method"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Practice: static start method"/>
+
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.alphawang.andoridfirstcode;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -48,5 +49,13 @@ public class SecondActivity extends Activity {
         intent.putExtra("data_return", "Back From 2nd Activity.");
         setResult(RESULT_OK, intent);
         finish();
+    }
+
+    // 3. start method
+    public static void actionStart(Context context, String extraData, String extraDesc) {
+        Intent intent = new Intent(context, SecondActivity.class);
+        intent.putExtra("extra_data", extraData);
+        intent.putExtra("extra_desc", extraDesc);
+        context.startActivity(intent);
     }
 }

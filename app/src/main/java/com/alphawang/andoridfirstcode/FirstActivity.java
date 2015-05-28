@@ -25,6 +25,8 @@ public class FirstActivity extends Activity {
 
         expIntentEvent();
         impIntentEvent();
+
+        startMethod();
     }
 
     // 1. Button Event
@@ -44,7 +46,7 @@ public class FirstActivity extends Activity {
     // 2. Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.first_menu, menu);
+        getMenuInflater().inflate(R.menu.first_menu, menu); // source, dest
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -116,4 +118,14 @@ public class FirstActivity extends Activity {
     }
 
 
+    // 6. static start method
+    private void startMethod() {
+        Button btn = (Button) findViewById(R.id.button_start_method);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SecondActivity.actionStart(FirstActivity.this, "Pass Data", "Pass description");
+            }
+        });
+    }
 }
