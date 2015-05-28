@@ -79,12 +79,14 @@ public class FirstActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FirstActivity.this, SecondActivity.class); // context, target
-                intent.putExtra("extra_data", "Data in 1st activity.");
-                startActivity(intent);
+                intent.putExtra("extra_data", "Data From 1st Activity.");
+//                startActivity(intent);
+                startActivityForResult(intent, REQ_CODE);
             }
         });
     }
 
+    // 4. imp intent
     private void impIntentEvent() {
         Button impBtn = (Button) findViewById(R.id.button_intent_imp);
         impBtn.setOnClickListener(new View.OnClickListener() {
@@ -95,5 +97,23 @@ public class FirstActivity extends Activity {
             }
         });
     }
+
+    // 5. receive returned data
+
+    private static final int REQ_CODE = 100;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case REQ_CODE:
+                if (resultCode == RESULT_OK) {
+                    String returnedData = data.getStringExtra("data_return");
+                    Toast.makeText(FirstActivity.this, "RECEIVED returned data: " + returnedData, Toast.LENGTH_SHORT).show();
+                }
+
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
 
 }

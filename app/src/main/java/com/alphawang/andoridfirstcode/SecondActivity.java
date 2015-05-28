@@ -19,6 +19,7 @@ public class SecondActivity extends Activity {
 
         buttonEvent();
 
+        // 1. receive data
         Intent intent = getIntent();
         String data = intent.getStringExtra("extra_data");
         Toast.makeText(SecondActivity.this, "RECEIVED : " + data, Toast.LENGTH_SHORT).show();
@@ -29,8 +30,23 @@ public class SecondActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SecondActivity.this, "pressed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SecondActivity.this, "finish", Toast.LENGTH_SHORT).show();
+
+                // 2. return data
+                Intent intent = new Intent();
+                intent.putExtra("data_return", "Data From 2nd Activity.");
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
+    }
+
+    // 2. return data if pressed back menu
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("data_return", "Back From 2nd Activity.");
+        setResult(RESULT_OK, intent);
+        finish();
     }
 }

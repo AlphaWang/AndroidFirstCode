@@ -20,7 +20,7 @@
         android:id="@+id/button_intent_exp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Goto 2nd activity: exp intent"/>
+        android:text="Goto 2nd activity: exp intent / return data"/>
 
     <Button
         android:id="@+id/button_intent_imp"
